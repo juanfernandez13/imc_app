@@ -27,7 +27,7 @@ class _OptionGendersState extends State<OptionGenders> {
             child: Card(
               color: gender == "male"
                   ? constants.vermelhoPadrao
-                  : constants.cinzaOptions,
+                  : constants.cinzaOptionsClear,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: const [
@@ -53,8 +53,8 @@ class _OptionGendersState extends State<OptionGenders> {
               },
               child: Card(
                 color: gender == "female"
-                  ? constants.vermelhoPadrao
-                  : constants.cinzaOptions,
+                    ? constants.vermelhoPadrao
+                    : constants.cinzaOptionsClear,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: const [

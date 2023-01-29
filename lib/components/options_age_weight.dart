@@ -20,7 +20,7 @@ class _OptionsAgeWieghtState extends State<OptionsAgeWieght> {
         children: [
           Expanded(
               child: Card(
-            color: constants.cinzaOptions,
+            color: constants.cinzaOptionsClear,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -61,7 +61,7 @@ class _OptionsAgeWieghtState extends State<OptionsAgeWieght> {
           )),
           Expanded(
               child: Card(
-            color: constants.cinzaOptions,
+            color: constants.cinzaOptionsClear,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
