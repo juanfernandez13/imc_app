@@ -4,6 +4,7 @@ import 'package:imc_app/components/option_genders.dart';
 import 'package:imc_app/components/option_height.dart';
 import 'package:imc_app/components/options_age_weight.dart';
 import 'package:imc_app/constants/constants.dart';
+import 'package:imc_app/models/imc_model.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -16,7 +17,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     Constants constants = Constants(context);
-
+    ImcModel imcModel = ImcModel();
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
@@ -28,14 +29,15 @@ class _HomePageState extends State<HomePage> {
         backgroundColor: constants.azulBackground,
         body: Center(
           child: SizedBox(
+            height: constants.heightPhone,
             width: constants.widthPhone * 0.95,
             child: Column(
               children: [
-                const OptionGenders(),
-                const OptionHeight(),
-                const OptionsAgeWieght(),
+                OptionGenders(imcModel),
+                OptionHeight(imcModel),
+                OptionsAgeWieght(imcModel),
                 const SizedBox(height: 20),
-                const ButtonCalIMC()
+                ButtonCalIMC(imcModel)
               ],
             ),
           ),

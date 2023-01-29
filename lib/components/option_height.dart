@@ -1,17 +1,18 @@
 import 'package:flutter/material.dart';
-import 'dart:math';
 
 import '../constants/constants.dart';
+import '../models/imc_model.dart';
 
 class OptionHeight extends StatefulWidget {
-  const OptionHeight({super.key});
+  final ImcModel imcModel;
+  OptionHeight(this.imcModel, {super.key});
 
   @override
   State<OptionHeight> createState() => _OptionHeightState();
 }
 
 class _OptionHeightState extends State<OptionHeight> {
-  double valueSlider = 100;
+  double valueSlider = 120;
   @override
   Widget build(BuildContext context) {
     Constants constants = Constants(context);
@@ -62,6 +63,7 @@ class _OptionHeightState extends State<OptionHeight> {
                 onChanged: (double value) {
                   setState(() {
                     valueSlider = value;
+                    widget.imcModel.altura = valueSlider;
                   });
                 },
                 thumbColor: constants.vermelhoPadrao,

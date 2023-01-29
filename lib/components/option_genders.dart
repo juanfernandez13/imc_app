@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:imc_app/models/imc_model.dart';
 import '../constants/constants.dart';
 
 class OptionGenders extends StatefulWidget {
-  const OptionGenders({super.key});
+  final ImcModel imcModel;
+  OptionGenders(this.imcModel, {super.key});
 
   @override
   State<OptionGenders> createState() => _OptionGendersState();
@@ -22,7 +24,9 @@ class _OptionGendersState extends State<OptionGenders> {
               child: InkWell(
             onTap: () {
               gender = gender == "male" ? "" : "male";
-              setState(() {});
+              setState(() {
+                widget.imcModel.gender = gender;
+              });
             },
             child: Card(
               color: gender == "male"
@@ -49,7 +53,9 @@ class _OptionGendersState extends State<OptionGenders> {
             child: InkWell(
               onTap: () {
                 gender = gender == "female" ? "" : "female";
-                setState(() {});
+                setState(() {
+                  widget.imcModel.gender = gender;
+                });
               },
               child: Card(
                 color: gender == "female"

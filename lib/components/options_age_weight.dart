@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:imc_app/constants/constants.dart';
 
+import '../models/imc_model.dart';
+
 class OptionsAgeWieght extends StatefulWidget {
-  const OptionsAgeWieght({super.key});
+  final ImcModel imcModel;
+  const OptionsAgeWieght(this.imcModel, {super.key});
 
   @override
   State<OptionsAgeWieght> createState() => _OptionsAgeWieghtState();
@@ -44,13 +47,21 @@ class _OptionsAgeWieghtState extends State<OptionsAgeWieght> {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     InkWell(
-                        onTap: () => setState(() => ++weight),
+                        onTap: () {
+                          ++weight;
+                          widget.imcModel.peso = weight;
+                          setState(() {});
+                        },
                         child: CircleAvatar(
                           backgroundColor: constants.vermelhoPadrao,
                           child: const Icon(Icons.add),
                         )),
                     InkWell(
-                        onTap: () => setState(() => --weight),
+                        onTap: () {
+                          setState(() {
+                            --weight;
+                          });
+                        },
                         child: CircleAvatar(
                             backgroundColor: constants.vermelhoPadrao,
                             child: const Icon(Icons.remove))),
