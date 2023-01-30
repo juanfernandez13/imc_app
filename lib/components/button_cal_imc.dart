@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:imc_app/pages/home_page.dart';
+import 'package:imc_app/pages/imc_page.dart';
+import 'package:imc_app/repositories/imc_repository.dart';
 import '../constants/constants.dart';
 import '../models/imc_model.dart';
 
@@ -34,6 +37,18 @@ class _ButtonCalIMCState extends State<ButtonCalIMC> {
     Colors.redAccent,
     Color.fromARGB(255, 230, 3, 3)
   ];
+
+  late ImcRepository imcRepository;
+
+  @override
+  void initState() {
+    super.initState();
+    carregarRepository();
+  }
+
+  void carregarRepository() async {
+    imcRepository = await ImcRepository.carregar();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -195,7 +210,19 @@ class _ButtonCalIMCState extends State<ButtonCalIMC> {
                                                                 Color>(
                                                             constants
                                                                 .vermelhoPadrao)),
-                                                onPressed: () {},
+                                                onPressed: () {
+                                                  imcRepository.salvar(
+                                                      ImcModel.criar(
+                                                          widget.imcModel.nome,
+                                                          widget
+                                                              .imcModel.genero,
+                                                          widget
+                                                              .imcModel.altura,
+                                                          widget.imcModel.peso,
+                                                          widget.imcModel.idade,
+                                                          widget.imcModel.imc));
+                                                  Navigator.pop(context);
+                                                },
                                                 child: const Text(
                                                   "Salvar",
                                                   style: TextStyle(
@@ -210,14 +237,11 @@ class _ButtonCalIMCState extends State<ButtonCalIMC> {
                                                                 .vermelhoPadrao)),
                                                 onPressed: () {
                                                   Navigator.pop(context);
-                                                  Future.delayed(const Duration(
-                                                      microseconds: 10));
-                                                  setState(() {
-                                                    widget.imcModel.altura =
-                                                        120;
-                                                    widget.imcModel.genero = "";
-                                                    widget.imcModel.peso = 60;
-                                                  });
+                                                  Navigator.pushReplacement(
+                                                      context,
+                                                      MaterialPageRoute(
+                                                          builder: (_) =>
+                                                              HomePage()));
                                                 },
                                                 child: const Text(
                                                     "Novo calculo",
