@@ -20,6 +20,7 @@ class _ImcPageState extends State<ImcPage> {
     ImcModel imcModel = ImcModel();
     return SafeArea(
       child: Scaffold(
+        resizeToAvoidBottomInset: false,
         appBar: AppBar(
             automaticallyImplyLeading:false,
             backgroundColor: constants.azulBackground,

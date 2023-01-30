@@ -15,6 +15,7 @@ class ButtonCalIMC extends StatefulWidget {
 
 class _ButtonCalIMCState extends State<ButtonCalIMC> {
   late double imc;
+  TextEditingController nomeController = TextEditingController(text: "");
   List<String> statusImc = [
     "Abaixo do peso",
     "Peso ideal",
@@ -211,17 +212,92 @@ class _ButtonCalIMCState extends State<ButtonCalIMC> {
                                                             constants
                                                                 .vermelhoPadrao)),
                                                 onPressed: () {
-                                                  imcRepository.salvar(
-                                                      ImcModel.criar(
-                                                          widget.imcModel.nome,
-                                                          widget
-                                                              .imcModel.genero,
-                                                          widget
-                                                              .imcModel.altura,
-                                                          widget.imcModel.peso,
-                                                          widget.imcModel.idade,
-                                                          widget.imcModel.imc));
+                                                  ImcModel salvarImc = widget.imcModel;
                                                   Navigator.pop(context);
+                                                  showDialog(
+                                                      context: context,
+                                                      builder:
+                                                          ((BuildContext bc) {
+                                                        return AlertDialog(
+                                                          backgroundColor: constants
+                                                              .cinzaOptionsDeep,
+                                                          alignment: Alignment
+                                                              .centerLeft,
+                                                          elevation: 8,
+                                                          shape: RoundedRectangleBorder(
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .circular(
+                                                                          10)),
+                                                          title: const Text(
+                                                              "Digite o seu nome",
+                                                              style: TextStyle(
+                                                                  color: Colors
+                                                                      .white)),
+                                                          content: Wrap(
+                                                            children: [
+                                                              TextField(
+                                                                onChanged:
+                                                                    (String
+                                                                        value) {
+                                                                  salvarImc.nome =nomeController
+                                                                          .text;
+                                                                },
+                                                                controller:
+                                                                    nomeController,
+                                                                decoration:
+                                                                    const InputDecoration(
+                                                                  hintText:
+                                                                      "Nome",
+                                                                  hintStyle: TextStyle(
+                                                                      color: Colors
+                                                                          .white30),
+                                                                ),
+                                                                style: const TextStyle(
+                                                                    color: Colors
+                                                                        .white),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                          actions: [
+                                                            TextButton(
+                                                                style:
+                                                                    ButtonStyle(
+                                                                  backgroundColor: MaterialStatePropertyAll<
+                                                                          Color>(
+                                                                      constants
+                                                                          .vermelhoPadrao),
+                                                                ),
+                                                                onPressed: (() {
+                                                                  imcRepository.salvar(ImcModel.criar(
+                                                                      salvarImc
+                                                                          .nome,
+                                                                      salvarImc
+                                                                          .genero,
+                                                                      salvarImc
+                                                                          .altura,
+                                                                      salvarImc
+                                                                          .peso,
+                                                                      salvarImc
+                                                                          .idade,
+                                                                      salvarImc
+                                                                          .imc));
+                                                                  Navigator.pushReplacement(
+                                                                      context,
+                                                                      MaterialPageRoute(
+                                                                          builder: (_) =>
+                                                                              HomePage()));
+                                                                }),
+                                                                child:
+                                                                    const Text(
+                                                                  "Salvar",
+                                                                  style: TextStyle(
+                                                                      color: Colors
+                                                                          .white),
+                                                                )),
+                                                          ],
+                                                        );
+                                                      }));
                                                 },
                                                 child: const Text(
                                                   "Salvar",
@@ -259,6 +335,6 @@ class _ButtonCalIMCState extends State<ButtonCalIMC> {
                     );
                   }));
         },
-        child: const Text("Cálcular IMC"));
+        child: const Text("Calcular IMC"));
   }
 }
