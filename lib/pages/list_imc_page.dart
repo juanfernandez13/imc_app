@@ -24,7 +24,7 @@ class ListImcPageState extends State<ListImcPage> {
   carregarRepository() async {
     imcRepository = await ImcRepository.carregar();
     resultadosSalvos = imcRepository.obterDados();
-    print(resultadosSalvos.length);   
+    print(resultadosSalvos.length);
     setState(() {});
   }
 
@@ -35,7 +35,7 @@ class ListImcPageState extends State<ListImcPage> {
     return SafeArea(
         child: Scaffold(
       appBar: AppBar(
-        automaticallyImplyLeading:false,
+        automaticallyImplyLeading: false,
         backgroundColor: constants.azulBackground,
         title: const Center(child: Text("IMCs salvos")),
       ),
@@ -46,18 +46,35 @@ class ListImcPageState extends State<ListImcPage> {
             itemCount: resultadosSalvos.length,
             itemBuilder: (context, index) {
               ImcModel imc = resultadosSalvos[index];
-              print(imc.genero);
               return Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: ListTile(
-                  tileColor: constants.cinzaOptionsClear,
-                  textColor: constants.vermelhoPadrao,
-                  leading: Icon(
-                    Icons.person,
-                    color: Colors.white,
+                child: Dismissible(
+                  key: Key(imc.nome+ imc.genero + imc.imc.toString()),
+                  onDismissed: (DismissDirection direction) async{
+                    imcRepository.excluir(imc);
+                    carregarRepository();
+                  },
+                  direction: DismissDirection.startToEnd,
+                  background: Container(
+                    color: constants.vermelhoPadrao,
+                    child: const Align(
+                      alignment: Alignment(-0.9, 0.0),
+                      child: Icon(
+                        Icons.delete,
+                        color: Colors.white,
+                      ),
+                    ),
                   ),
-                  trailing: Text(imc.imc.toStringAsFixed(2)),
-                  title: Text(imc.nome),
+                  child: ListTile(
+                    tileColor: constants.cinzaOptionsClear,
+                    textColor: constants.vermelhoPadrao,
+                    leading: const Icon(
+                      Icons.person,
+                      color: Colors.white,
+                    ),
+                    trailing: Text(imc.imc.toStringAsFixed(2)),
+                    title: Text(imc.nome),
+                  ),
                 ),
               );
             }),
