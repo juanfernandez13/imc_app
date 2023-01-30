@@ -1,14 +1,31 @@
 import 'dart:math';
+import 'package:hive/hive.dart';
+part 'imc_model.g.dart';
 
-class ImcModel {
+@HiveType(typeId: 0)
+class ImcModel extends HiveObject {
+  @HiveField(0)
   String _nome = "";
+  @HiveField(1)
   String _genero = "";
+  @HiveField(2)
   double _altura = 120;
+  @HiveField(3)
   int _peso = 40;
+  @HiveField(4)
   int _idade = 20;
+  @HiveField(5)
   double _imc = 0.0;
 
   ImcModel();
+  ImcModel.criar(
+    this._nome,
+    this._genero,
+    this._altura,
+    this._peso,
+    this._idade,
+    this._imc,
+  );
 
   String get genero => _genero;
   set genero(String gender) => _genero = gender;
