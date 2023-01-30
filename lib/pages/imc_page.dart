@@ -21,6 +21,7 @@ class _ImcPageState extends State<ImcPage> {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
+            automaticallyImplyLeading:false,
             backgroundColor: constants.azulBackground,
             title: const Center(
                 child: Text(
