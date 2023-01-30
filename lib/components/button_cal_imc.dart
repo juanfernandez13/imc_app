@@ -62,7 +62,7 @@ class _ButtonCalIMCState extends State<ButtonCalIMC> {
             indexText = 4;
           }
           setState(() {});
-          widget.imcModel.gender == ""
+          widget.imcModel.genero == ""
               ? showDialog(
                   context: context,
                   builder: ((BuildContext bc) {
@@ -161,9 +161,12 @@ class _ButtonCalIMCState extends State<ButtonCalIMC> {
                                             ),
                                           ),
                                           Text(
-                                              "Seu peso ideal: ${widget.imcModel.pesoIdealMinimo().toStringAsFixed(2)} - ${widget.imcModel.pesoIdealMaximo().toStringAsFixed(2)} kg",
-                                              style: TextStyle(fontSize: 14, color: Colors.green, fontWeight: FontWeight.w400),
-                                              )
+                                            "Seu peso ideal: ${widget.imcModel.pesoIdealMinimo().toStringAsFixed(2)} - ${widget.imcModel.pesoIdealMaximo().toStringAsFixed(2)} kg",
+                                            style: TextStyle(
+                                                fontSize: 14,
+                                                color: Colors.green,
+                                                fontWeight: FontWeight.w400),
+                                          )
                                         ],
                                       ),
                                     ),
@@ -207,6 +210,14 @@ class _ButtonCalIMCState extends State<ButtonCalIMC> {
                                                                 .vermelhoPadrao)),
                                                 onPressed: () {
                                                   Navigator.pop(context);
+                                                  Future.delayed(const Duration(
+                                                      microseconds: 10));
+                                                  setState(() {
+                                                    widget.imcModel.altura =
+                                                        120;
+                                                    widget.imcModel.genero = "";
+                                                    widget.imcModel.peso = 60;
+                                                  });
                                                 },
                                                 child: const Text(
                                                     "Novo calculo",

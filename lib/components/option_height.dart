@@ -12,7 +12,6 @@ class OptionHeight extends StatefulWidget {
 }
 
 class _OptionHeightState extends State<OptionHeight> {
-  double valueSlider = 120;
   @override
   Widget build(BuildContext context) {
     Constants constants = Constants(context);
@@ -40,14 +39,14 @@ class _OptionHeightState extends State<OptionHeight> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Text(
-                    "${valueSlider.floor()}",
-                    style: TextStyle(
+                    "${widget.imcModel.altura.floor()}",
+                    style: const TextStyle(
                         fontSize: 45,
                         color: Colors.white,
                         fontWeight: FontWeight.w600,
                         height: 0.8),
                   ),
-                  Text(
+                  const Text(
                     " cm",
                     style: TextStyle(
                         fontSize: 20,
@@ -57,13 +56,12 @@ class _OptionHeightState extends State<OptionHeight> {
                 ],
               ),
               Slider(
-                value: valueSlider,
+                value: widget.imcModel.altura,
                 max: 230,
                 min: 100,
                 onChanged: (double value) {
                   setState(() {
-                    valueSlider = value;
-                    widget.imcModel.altura = valueSlider;
+                    widget.imcModel.altura = value;
                   });
                 },
                 thumbColor: constants.vermelhoPadrao,

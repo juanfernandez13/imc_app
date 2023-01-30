@@ -1,16 +1,19 @@
 import 'dart:math';
 
 class ImcModel {
-  String _gender = "";
+  String _nome = "";
+  String _genero = "";
   double _altura = 120;
   int _peso = 40;
-  int _idade = 0;
+  int _idade = 20;
   double _imc = 0.0;
 
   ImcModel();
 
-  String get gender => _gender;
-  set gender(String gender) => _gender = gender;
+  String get genero => _genero;
+  set genero(String gender) => _genero = gender;
+  String get nome => _nome;
+  set nome(String nome) => _nome = nome;
   double get altura => _altura;
   set altura(double altura) => _altura = altura;
   int get peso => _peso;
@@ -32,6 +35,7 @@ class ImcModel {
     maxPeso = 25 * altura * altura;
     return maxPeso;
   }
+
   double pesoIdealMinimo() {
     double minPeso;
     double altura = _altura.floor() / 100.0;

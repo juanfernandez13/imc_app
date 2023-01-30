@@ -12,8 +12,6 @@ class OptionsAgeWieght extends StatefulWidget {
 }
 
 class _OptionsAgeWieghtState extends State<OptionsAgeWieght> {
-  int weight = 60;
-  int age = 20;
   @override
   Widget build(BuildContext context) {
     Constants constants = Constants(context);
@@ -36,7 +34,7 @@ class _OptionsAgeWieghtState extends State<OptionsAgeWieght> {
                           fontWeight: FontWeight.w300)),
                 ),
                 Text(
-                  weight.toString(),
+                  widget.imcModel.peso.toString(),
                   style: const TextStyle(
                       fontSize: 45,
                       color: Colors.white,
@@ -48,9 +46,9 @@ class _OptionsAgeWieghtState extends State<OptionsAgeWieght> {
                   children: [
                     InkWell(
                         onTap: () {
-                          ++weight;
-                          widget.imcModel.peso = weight;
-                          setState(() {});
+                          setState(() {
+                            ++widget.imcModel.peso;
+                          });
                         },
                         child: CircleAvatar(
                           backgroundColor: constants.vermelhoPadrao,
@@ -59,7 +57,7 @@ class _OptionsAgeWieghtState extends State<OptionsAgeWieght> {
                     InkWell(
                         onTap: () {
                           setState(() {
-                            --weight;
+                            --widget.imcModel.peso;
                           });
                         },
                         child: CircleAvatar(
@@ -85,7 +83,7 @@ class _OptionsAgeWieghtState extends State<OptionsAgeWieght> {
                           fontWeight: FontWeight.w300)),
                 ),
                 Text(
-                  age.toString(),
+                  widget.imcModel.idade.toString(),
                   style: const TextStyle(
                       fontSize: 45,
                       color: Colors.white,
@@ -96,13 +94,13 @@ class _OptionsAgeWieghtState extends State<OptionsAgeWieght> {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     InkWell(
-                        onTap: () => setState(() => ++age),
+                        onTap: () => setState(() => ++widget.imcModel.idade),
                         child: CircleAvatar(
                           backgroundColor: constants.vermelhoPadrao,
                           child: const Icon(Icons.add),
                         )),
                     InkWell(
-                        onTap: () => setState(() => --age),
+                        onTap: () => setState(() => --widget.imcModel.idade),
                         child: CircleAvatar(
                             backgroundColor: constants.vermelhoPadrao,
                             child: const Icon(Icons.remove))),

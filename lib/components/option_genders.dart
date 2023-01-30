@@ -11,7 +11,6 @@ class OptionGenders extends StatefulWidget {
 }
 
 class _OptionGendersState extends State<OptionGenders> {
-  String gender = "";
   @override
   Widget build(BuildContext context) {
     Constants constants = Constants(context);
@@ -23,13 +22,13 @@ class _OptionGendersState extends State<OptionGenders> {
           Expanded(
               child: InkWell(
             onTap: () {
-              gender = gender == "male" ? "" : "male";
               setState(() {
-                widget.imcModel.gender = gender;
+                widget.imcModel.genero =
+                    widget.imcModel.genero == "male" ? "" : "male";
               });
             },
             child: Card(
-              color: gender == "male"
+              color: widget.imcModel.genero == "male"
                   ? constants.vermelhoPadrao
                   : constants.cinzaOptionsClear,
               child: Column(
@@ -52,13 +51,13 @@ class _OptionGendersState extends State<OptionGenders> {
           Expanded(
             child: InkWell(
               onTap: () {
-                gender = gender == "female" ? "" : "female";
                 setState(() {
-                  widget.imcModel.gender = gender;
+                  widget.imcModel.genero =
+                      widget.imcModel.genero == "female" ? "" : "female";
                 });
               },
               child: Card(
-                color: gender == "female"
+                color: widget.imcModel.genero == "female"
                     ? constants.vermelhoPadrao
                     : constants.cinzaOptionsClear,
                 child: Column(
