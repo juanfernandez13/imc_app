@@ -83,6 +83,7 @@ class _ButtonCalIMCState extends State<ButtonCalIMC> {
                   context: context,
                   builder: ((BuildContext bc) {
                     return AlertDialog(
+                      
                       backgroundColor: constants.cinzaOptionsDeep,
                       alignment: Alignment.centerLeft,
                       elevation: 8,
@@ -281,7 +282,8 @@ class _ButtonCalIMCState extends State<ButtonCalIMC> {
                                                                       salvarImc
                                                                           .idade,
                                                                       salvarImc
-                                                                          .imc));
+                                                                          .imc,
+                                                                         statusImc[indexText] ));
                                                                   Navigator.pushReplacement(
                                                                       context,
                                                                       MaterialPageRoute(
