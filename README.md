@@ -1,16 +1,9 @@
-# imc_app
+# Calculadora de Imc em Flutter
 
-A new Flutter project.
+![linguagem](https://img.shields.io/github/languages/top/juanfernandez13/imc_app?color=blue&style=for-the-badge)
+![tamanho do projeto](https://img.shields.io/github/languages/code-size/juanfernandez13/imc_app?color=blue&style=for-the-badge)
+![tamanho do projeto](https://img.shields.io/github/last-commit/juanfernandez13/imc_app?color=blue&style=for-the-badge)
 
-## Getting Started
+Aplicativo mobile híbrido para o calculo do Índice de Massa Corporal (IMC). Armazenando informações como altura, peso, idade, sexo e status. Para criar esse projeto foi utilizado a linguagem [Dart](https://dart.dev/) e o framework [Flutter](https://flutter.dev/).
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+##
