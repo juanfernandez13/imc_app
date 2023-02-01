@@ -6,16 +6,20 @@ class ImcRepository {
   ImcRepository._criar();
 
   static Future<ImcRepository> carregar() async {
-    if (Hive.isBoxOpen('imcModel')) {
-      _box = Hive.box('imcModel');
+    if (Hive.isBoxOpen('imc')) {
+      _box = Hive.box('imc');
     } else {
-      _box = await Hive.openBox('imcModel');
+      _box = await Hive.openBox('imc');
     }
+
     return ImcRepository._criar();
   }
 
   salvar(ImcModel imcModel) => _box.add(imcModel);
   alterar(ImcModel imcModel) => imcModel.save();
   excluir(ImcModel imcModel) => imcModel.delete();
-  List<ImcModel> obterDados() => _box.values.cast<ImcModel>().toList();
+  List<ImcModel> obterDados(String status) => _box.values
+      .cast<ImcModel>()
+      .where((element) => status == "Nenhum" ? true : element.status == status)
+      .toList();
 }
