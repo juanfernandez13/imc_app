@@ -16,7 +16,9 @@ class ImcModel extends HiveObject {
   int _idade = 20;
   @HiveField(5)
   double _imc = 0.0;
-
+  @HiveField(6)
+  String _status = "";
+  
   ImcModel();
   ImcModel.criar(
     this._nome,
@@ -25,6 +27,7 @@ class ImcModel extends HiveObject {
     this._peso,
     this._idade,
     this._imc,
+    this._status,
   );
 
   String get genero => _genero;
@@ -39,6 +42,8 @@ class ImcModel extends HiveObject {
   set idade(int idade) => _idade = idade;
   double get imc => _imc;
   set imc(double imc) => _imc = imc;
+  String get status => _status;
+  set status(String status) => _status = status;
 
   double calcularImc() {
     double altura = _altura.floor() / 100.0;

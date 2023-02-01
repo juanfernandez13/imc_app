@@ -22,13 +22,14 @@ class ImcModelAdapter extends TypeAdapter<ImcModel> {
       .._altura = fields[2] as double
       .._peso = fields[3] as int
       .._idade = fields[4] as int
-      .._imc = fields[5] as double;
+      .._imc = fields[5] as double
+      .._status = fields[6] as String;
   }
 
   @override
   void write(BinaryWriter writer, ImcModel obj) {
     writer
-      ..writeByte(6)
+      ..writeByte(7)
       ..writeByte(0)
       ..write(obj._nome)
       ..writeByte(1)
@@ -40,7 +41,9 @@ class ImcModelAdapter extends TypeAdapter<ImcModel> {
       ..writeByte(4)
       ..write(obj._idade)
       ..writeByte(5)
-      ..write(obj._imc);
+      ..write(obj._imc)
+      ..writeByte(6)
+      ..write(obj._status);
   }
 
   @override
