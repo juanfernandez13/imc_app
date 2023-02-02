@@ -16,11 +16,15 @@ class HiveImcRepository implements ImcRepository {
 
     return HiveImcRepository._criar();
   }
-
+  @override
   salvar(ImcModel imcModel) => _box.add(imcModel);
+  @override
   alterar(ImcModel imcModel) => imcModel.save();
+  @override
   excluir(ImcModel imcModel) => imcModel.delete();
-  List<ImcModel> obterDados(String status) => _box.values
+  @override
+  //para adaptar o sqflite na class ImcRepository
+  Future<List<ImcModel>> obterDados(String status) async => _box.values
       .cast<ImcModel>()
       .where((element) => status == "Nenhum" ? true : element.status == status)
       .toList();
