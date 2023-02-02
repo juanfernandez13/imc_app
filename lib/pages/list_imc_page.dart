@@ -5,6 +5,7 @@ import 'package:imc_app/constants/constants.dart';
 import 'package:imc_app/models/imc_model.dart';
 import 'package:imc_app/repositories/imc_repository.dart';
 import 'package:imc_app/repositories/impl/hive_imc_repository.dart';
+import 'package:imc_app/repositories/impl/sqflite/sqflite_imc_repository.dart';
 
 class ListImcPage extends StatefulWidget {
   const ListImcPage({super.key});
@@ -24,7 +25,7 @@ class ListImcPageState extends State<ListImcPage> {
 
   carregarRepository(String status) async {
     imcRepository = await imcRepository.carregar();
-    resultadosSalvos = imcRepository.obterDados(status);
+    resultadosSalvos = await imcRepository.obterDados(status);
     setState(() {});
   }
 

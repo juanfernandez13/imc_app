@@ -3,6 +3,7 @@ import 'package:imc_app/pages/home_page.dart';
 import 'package:imc_app/pages/imc_page.dart';
 import 'package:imc_app/repositories/imc_repository.dart';
 import 'package:imc_app/repositories/impl/hive_imc_repository.dart';
+import 'package:imc_app/repositories/impl/sqflite/sqflite_imc_repository.dart';
 import '../constants/constants.dart';
 import '../models/imc_model.dart';
 
