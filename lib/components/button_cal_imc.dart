@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:imc_app/pages/home_page.dart';
 import 'package:imc_app/pages/imc_page.dart';
 import 'package:imc_app/repositories/imc_repository.dart';
+import 'package:imc_app/repositories/impl/hive_imc_repository.dart';
 import '../constants/constants.dart';
 import '../models/imc_model.dart';
 
@@ -39,7 +40,7 @@ class _ButtonCalIMCState extends State<ButtonCalIMC> {
     Color.fromARGB(255, 230, 3, 3)
   ];
 
-  late ImcRepository imcRepository;
+  ImcRepository imcRepository = HiveImcRepository();
 
   @override
   void initState() {
@@ -48,7 +49,7 @@ class _ButtonCalIMCState extends State<ButtonCalIMC> {
   }
 
   void carregarRepository() async {
-    imcRepository = await ImcRepository.carregar();
+    imcRepository = await imcRepository.carregar();
   }
 
   @override

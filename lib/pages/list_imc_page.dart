@@ -4,6 +4,7 @@ import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:imc_app/constants/constants.dart';
 import 'package:imc_app/models/imc_model.dart';
 import 'package:imc_app/repositories/imc_repository.dart';
+import 'package:imc_app/repositories/impl/hive_imc_repository.dart';
 
 class ListImcPage extends StatefulWidget {
   const ListImcPage({super.key});
@@ -13,7 +14,7 @@ class ListImcPage extends StatefulWidget {
 }
 
 class ListImcPageState extends State<ListImcPage> {
-  late ImcRepository imcRepository;
+  late ImcRepository imcRepository = HiveImcRepository();
   List resultadosSalvos = <ImcModel>[];
   @override
   void initState() {
@@ -22,7 +23,7 @@ class ListImcPageState extends State<ListImcPage> {
   }
 
   carregarRepository(String status) async {
-    imcRepository = await ImcRepository.carregar();
+    imcRepository = await imcRepository.carregar();
     resultadosSalvos = imcRepository.obterDados(status);
     setState(() {});
   }
