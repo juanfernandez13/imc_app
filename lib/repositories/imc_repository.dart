@@ -5,5 +5,5 @@ abstract class ImcRepository {
   salvar(ImcModel imcModel);
   alterar(ImcModel imcModel);
   excluir(ImcModel imcModel);
-  List<ImcModel> obterDados(String status);
+  Future<List<ImcModel>> obterDados(String status);
 }
