@@ -16,7 +16,7 @@ Telas do Aplicativo
 </h2>
 
 <p align="center">
-  <img src = "https://github.com/juanfernandez13/imc_app/blob/master/readme/imcPage.png" height=450/>
+  <img src = "https://github.com/juanfernandez13/imc_app/blob/master/readme/imcPage.png#vitrinedev" height=450/>
   <img src = "https://github.com/juanfernandez13/imc_app/blob/master/readme/modal.png"  height=450/>
   <img src = "https://github.com/juanfernandez13/imc_app/blob/master/readme/listPage.png"  height=450/>
 <p/>
