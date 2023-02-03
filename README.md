@@ -15,7 +15,7 @@ Aplicativo mobile híbrido para o calculo do Índice de Massa Corporal (IMC). Ar
 <p/>
 
 <h2>
-<img src="https://img.icons8.com/color/512/smartphone-tablet.png" height = 35/>
+<img src="https://img.icons8.com/nolan/256/iphone-x.png" height = 35/>
 Telas do Aplicativo
 </h2>
 
@@ -26,7 +26,7 @@ Telas do Aplicativo
 <p/>
 
 <h2>
-<img src="https://img.icons8.com/fluency/512/wrench--v2.png" height = 35/>
+<img src="https://img.icons8.com/nolan/256/wrench.png" height = 35/>
 Funcionalidades
 </h2>
 
@@ -40,7 +40,7 @@ Funcionalidades
 - [x] **Fácil navegação**: Uso dos Widgets [PageView](https://api.flutter.dev/flutter/widgets/PageView-class.html) e [BottomNavigationBar](https://api.flutter.dev/flutter/material/BottomNavigationBar-class.html) para uma fácil navegação entre as telas.
 
 <h2>
-<img src="https://img.icons8.com/stickers/256/open-parcel.png" height = 35/>
+<img src="https://github.com/juanfernandez13/imc_app/blob/master/readme/icons8-box-64.png" height = 35/>
 Packages
 </h2>
 
