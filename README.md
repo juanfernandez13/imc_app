@@ -1,10 +1,14 @@
-# Calculadora de Imc em Flutter
+<h1>
+  <img src="https://img.icons8.com/fluency/256/flutter.png" height=50/>
+  Calculadora de Imc em Flutter
+</h1>
+
 
 ![linguagem](https://img.shields.io/github/languages/top/juanfernandez13/imc_app?color=blue&style=for-the-badge)
 ![tamanho do projeto](https://img.shields.io/github/languages/code-size/juanfernandez13/imc_app?color=blue&style=for-the-badge)
 ![tamanho do projeto](https://img.shields.io/github/last-commit/juanfernandez13/imc_app?color=blue&style=for-the-badge)
 
-Aplicativo mobile híbrido para o calculo do Índice de Massa Corporal (IMC). Armazenando informações como altura, peso, idade, sexo e status. Para criar esse projeto foi utilizado a linguagem [Dart](https://dart.dev/) e o framework [Flutter](https://flutter.dev/). Como o objetivo da aplicação era treinar a persistência de dados localmente com FLutter, por isso foi criado uma classe abstrata chamada [ImcRepository](https://github.com/juanfernandez13/imc_app/blob/master/lib/repositories/imc_repository.dart) onde contém os principais métodos da aplicação e são implementadas nas classes [HiveImcModel](https://github.com/juanfernandez13/imc_app/blob/master/lib/repositories/impl/hive_imc_repository.dart) e [SqfliteImcModel](https://github.com/juanfernandez13/imc_app/blob/master/lib/repositories/impl/sqflite/sqflite_imc_repository.dart), que utiliza o banco NoSQL [Hive](https://pub.dev/packages/hive) e SQL [SQFFite](https://pub.dev/packages/sqflite). 
+Aplicativo mobile híbrido para o calculo do Índice de Massa Corporal (IMC). Armazenando informações como altura, peso, idade, sexo e status. Para criar esse projeto foi utilizado a linguagem [Dart](https://dart.dev/) e o framework [Flutter](https://flutter.dev/). Como o objetivo da aplicação era treinar a persistência de dados localmente com FLutter, por isso foi criado uma classe abstrata chamada [ImcRepository](https://github.com/juanfernandez13/imc_app/blob/master/lib/repositories/imc_repository.dart) onde contém os principais métodos da aplicação e são implementadas nas classes [HiveImcModel](https://github.com/juanfernandez13/imc_app/blob/master/lib/repositories/impl/hive_imc_repository.dart) e [SqfliteImcModel](https://github.com/juanfernandez13/imc_app/blob/master/lib/repositories/impl/sqflite/sqflite_imc_repository.dart), que utiliza o banco NoSQL [Hive](https://pub.dev/packages/hive) e SQL [SQFlite](https://pub.dev/packages/sqflite). 
 
 <p align="center">
   <img src="https://github.com/juanfernandez13/imc_app/blob/master/readme/Android-Emulator-Pixel_3_XL_API_30_5554-2023-02-01-18-08-53.gif" height=650/>
@@ -153,3 +157,17 @@ Widgets
 * [AlertDialog](https://api.flutter.dev/flutter/material/AlertDialog-class.html)
 * [ElevatedButton](https://api.flutter.dev/flutter/material/ElevatedButton-class.html)
 * [Dismissible](https://api.flutter.dev/flutter/widgets/Dismissible-class.html)
+
+<h2>
+<img src="https://img.icons8.com/nolan/256/repository.png" height = 35/>
+Conceitos abordados
+</h2>
+
+* Abstração
+* Atributos
+* Classes
+* Encapsulamento
+* Herança
+* Interfaces
+* Polimorfismo
+* Métodos
